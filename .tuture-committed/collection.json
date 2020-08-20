@@ -1,0 +1,1845 @@
+{
+  "name": "JavaScript 测试系列实战",
+  "description": "",
+  "id": "f40c6ffaaaa1f",
+  "created": "2020-08-20T12:04:01.397Z",
+  "articles": [
+    {
+      "id": "5e1396b8",
+      "name": "JavaScript 测试系列实战",
+      "description": "",
+      "topics": [],
+      "categories": [],
+      "created": "2020-08-20T12:04:01.397Z",
+      "cover": ""
+    }
+  ],
+  "steps": [
+    {
+      "type": "step",
+      "id": "7598a3f5",
+      "articleId": null,
+      "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+          "id": "78bc042a",
+          "fixed": true,
+          "children": [
+            {
+              "text": "Initialize project using Create React App"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".gitignore",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".gitignore",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".prettierrc",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".prettierrc",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "README.md",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "README.md",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package-lock.json",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package-lock.json",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package.json",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "public/favicon.ico",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "public/favicon.ico",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "public/index.html",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "public/index.html",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "public/logo192.png",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "public/logo192.png",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "public/logo512.png",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "public/logo512.png",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "public/manifest.json",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "public/manifest.json",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "public/robots.txt",
+          "display": true,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "public/robots.txt",
+              "commit": "796276585cc5686c3d29a705e90af08df6c04101",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+      "id": "230ba65c",
+      "articleId": "5e1396b8",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+          "id": "35dbfadc",
+          "fixed": true,
+          "children": [
+            {
+              "text": "初识 Jest 单元测试"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "测试是检查代码的代码。测试可能会让您对应用程序更有信心。它们也会阻止你在修复一件事情的同时破坏另一件事情。您可以测试应用程序的许多方面，从单个函数及其返回值到在浏览器中运行的复杂应用程序。由于这是本课程的第一篇文章，我们将简要比较流行的测试类型。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "测试的类型"
+                }
+              ],
+              "id": "MXvONvusW"
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "单元测试"
+                }
+              ],
+              "id": "3Yi38H9mM"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "单元测试的目标可以是一个函数，一个类，或者一个模块。单元测试应该是相互隔离和独立的。对于给定的输入，单元测试检查结果。通过及早发现问题并避免 bug 回归，它可以帮助我们确保代码的各个部分按预期工作。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "集成测试"
+                }
+              ],
+              "id": "9y6jGT6T8"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "即使所有单元测试都通过了，我们的应用仍然可能会崩溃。集成测试则是用来测试跨模单元/模块的过程，可以很好地确保我们的代码能够作为一个整体运行。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "端到端测试(E2E)"
+                }
+              ],
+              "id": "4CcyiHQXu"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "与其他类型的测试不同，E2E 测试总是在浏览器(或类浏览器)环境中运行。它可能是一个实际的浏览器，可以打开并在其中运行测试；也可能是一个无头（Headless）的浏览器环境，这是一个没有用户界面的浏览器。E2E 测试的重点是在我们正在运行的应用程序中模拟实际用户（例如模拟滚动、单击和键入等行为），并检查我们的应用程序是否从实际用户的角度运行良好。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在这一系列教程中，我们将会从零开始，一步步带你熟悉从单元测试到端到端测试的方方面面。我们将会在一个 React 项目中实践所学到的自动化测试技术。首先用 Create React App（CRA）搭建项目脚手架："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "create-react-app javascript-test-series"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "然后我们删除 "
+                },
+                {
+                  "text": "src",
+                  "code": true
+                },
+                {
+                  "text": " 目录下所有预创建的文件（当然你也可以手动删除）："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "rm src/*"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "一切准备就绪！让我们开始吧。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "divide.js",
+          "display": true,
+          "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "编写第一个单元测试"
+                    }
+                  ],
+                  "id": "57wUntp3Z"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "编写一个单元测试实际上要比你想象得简单很多。首先创建 "
+                    },
+                    {
+                      "text": "divide.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，在其中编写一个 "
+                    },
+                    {
+                      "text": "divide",
+                      "code": true
+                    },
+                    {
+                      "text": " 函数："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "divide.js",
+              "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "divide.test.js",
+          "display": true,
+          "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后创建测试文件 "
+                    },
+                    {
+                      "text": "divide.test.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "divide.test.js",
+              "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "CRA 已经为我们配置好了 Jest"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+              "hiddenLines": [
+                [
+                  1,
+                  11
+                ],
+                [
+                  19,
+                  33
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "math.test.js",
+          "display": true,
+          "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "编写第一组测试"
+                    }
+                  ],
+                  "id": "TL84IpcI4"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "每个测试文件通常有多个测试。Jest 允许我们通过 "
+                    },
+                    {
+                      "text": "describe",
+                      "code": true
+                    },
+                    {
+                      "text": " 函数对测试进行分组，它创建了一个可以组合多个测试的块。让我们对全局 "
+                    },
+                    {
+                      "text": "Math",
+                      "code": true
+                    },
+                    {
+                      "text": " 对象运行一些测试（希望浏览器工程师和 Node 开源项目维护者不要来打我），创建 "
+                    },
+                    {
+                      "text": "math.test.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "math.test.js",
+              "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "block-quote",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "你也许注意到了这里我们用了 "
+                        },
+                        {
+                          "text": "it",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数而不是 "
+                        },
+                        {
+                          "text": "test",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数，这两者实际上是完全一样的。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这样对测试进行分组可以使我们的代码更加清晰。在关注应用程序的代码质量的同时，我们也应该确保测试代码的质量，这样我们才有足够的动力不断去维护测试代码，从而确保我们的项目能够保持健壮。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "除了使代码更具可读性之外，它还有助于在出现错误时提供更好的错误消息。如果这里我们将第一条测试用例改为 `"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "14zX4UIF3"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们已经解释了最基本的 JavaScript 测试类型是什么。我们讨论的第一种类型的测试是单元测试。为了执行它们，我们学习了 Jestframework 的基本知识。它包含了如何运行测试(安装和文件命名)的知识。为了运行测试，我们使用了 test、 it 和 describe 函数。"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+      "id": "c99d23be",
+      "articleId": "5e1396b8",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+          "id": "81bd1efb",
+          "fixed": true,
+          "children": [
+            {
+              "text": "初识 Enzyme：编写第一个  React 组件测试"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "很显然，我们不会仅仅满足于测试像 "
+                },
+                {
+                  "text": "divide",
+                  "code": true
+                },
+                {
+                  "text": " 那样简单的函数，我们希望能够测试一个 React 组件，但是和一个普通的 JavaScript 函数不同，测试一个 React 组件还需要两个关键的问题：1）怎么渲染待测试的组件；2）怎么测试渲染出来的组件。 "
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "所幸的是，Airbnb 作为重度使用 React 的先驱，早就提出了专门的解决方案："
+                },
+                {
+                  "text": "Enzyme",
+                  "link": true,
+                  "url": "https://github.com/enzymejs/enzyme"
+                },
+                {
+                  "text": "。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "安装和配置 Enzyme"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "首先安装 Enzyme 和相应的 React 适配器："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "npm install enzyme enzyme-adapter-react-16"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package-lock.json",
+          "display": false,
+          "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package-lock.json",
+              "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+              "hiddenLines": [
+                [
+                  0,
+                  2204
+                ],
+                [
+                  2227,
+                  2340
+                ],
+                [
+                  2352,
+                  2378
+                ],
+                [
+                  2394,
+                  3427
+                ],
+                [
+                  3496,
+                  4589
+                ],
+                [
+                  4601,
+                  4866
+                ],
+                [
+                  4954,
+                  6221
+                ],
+                [
+                  6248,
+                  6572
+                ],
+                [
+                  6587,
+                  6987
+                ],
+                [
+                  6999,
+                  7099
+                ],
+                [
+                  7111,
+                  7176
+                ],
+                [
+                  7188,
+                  8132
+                ],
+                [
+                  8154,
+                  8559
+                ],
+                [
+                  8571,
+                  8637
+                ],
+                [
+                  8663,
+                  10423
+                ],
+                [
+                  10440,
+                  10549
+                ],
+                [
+                  10570,
+                  10908
+                ],
+                [
+                  10926,
+                  10981
+                ],
+                [
+                  10993,
+                  11363
+                ],
+                [
+                  11379,
+                  12262
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": false,
+          "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+              "hiddenLines": [
+                [
+                  0,
+                  4
+                ],
+                [
+                  13,
+                  13
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/setupTests.js",
+          "display": true,
+          "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们需要配置一下 Enzyme，才能在 Jest 测试文件中使用它。创建 "
+                    },
+                    {
+                      "text": "src/setupTests.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/setupTests.js",
+              "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/App.js",
+          "display": true,
+          "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "浅层渲染"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Enzyme 提供的一个重要功能便是组件的"
+                    },
+                    {
+                      "text": "浅层渲染",
+                      "bold": true
+                    },
+                    {
+                      "text": "（Shallow Rendering）。它允许我们在运行测试时，"
+                    },
+                    {
+                      "text": "只渲染父组件而不渲染其所有的子组件",
+                      "bold": true
+                    },
+                    {
+                      "text": "。浅层渲染十分快速，因此非常适合单元测试。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "首先让我们创建一个简单的 React 组件，创建 "
+                    },
+                    {
+                      "text": "src/App.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/App.js",
+              "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/App.test.js",
+          "display": true,
+          "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "编写 "
+                    },
+                    {
+                      "text": "App",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件对应的测试文件 "
+                    },
+                    {
+                      "text": "src/App.test.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/App.test.js",
+              "commit": "9fd76e23ae77dd7c2f4811ae32c17a03256d9c21",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "2ee6b58449f7570a465b349455186e5916058080",
+      "id": "5534ea3a",
+      "articleId": "5e1396b8",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "id": "574aad07",
+          "fixed": true,
+          "children": [
+            {
+              "text": "测试更复杂的组件"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package-lock.json",
+          "display": false,
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package-lock.json",
+              "commit": "2ee6b58449f7570a465b349455186e5916058080",
+              "hiddenLines": [
+                [
+                  0,
+                  3576
+                ],
+                [
+                  3588,
+                  4396
+                ],
+                [
+                  4422,
+                  4962
+                ],
+                [
+                  4978,
+                  4980
+                ],
+                [
+                  4996,
+                  7436
+                ],
+                [
+                  7451,
+                  7545
+                ],
+                [
+                  7562,
+                  8187
+                ],
+                [
+                  8214,
+                  8222
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": false,
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "2ee6b58449f7570a465b349455186e5916058080",
+              "hiddenLines": [
+                [
+                  0,
+                  6
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.js",
+          "display": true,
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.js",
+              "commit": "2ee6b58449f7570a465b349455186e5916058080",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.test.js",
+          "display": true,
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.test.js",
+              "commit": "2ee6b58449f7570a465b349455186e5916058080",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/setupTests.js",
+          "display": true,
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/setupTests.js",
+              "commit": "2ee6b58449f7570a465b349455186e5916058080",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "github": "https://github.com/tuture-dev/javascript-test-series",
+  "remotes": [],
+  "version": "v1"
+}
