@@ -834,7 +834,50 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "CRA 已经为我们配置好了 Jest，这里直接运行 "
+                    },
+                    {
+                      "text": "npx jest",
+                      "code": true
+                    },
+                    {
+                      "text": " 命令，就可以看到测试结果了："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "[待插入图片]"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "CRA 也配置了 "
+                        },
+                        {
+                          "text": "test",
+                          "code": true
+                        },
+                        {
+                          "text": " 命令，但是提供了比较复杂的功能配置（例如 Watch 模式等），可能会让初学 Jest 的你不知所措。因此这里建议直接使用 "
+                        },
+                        {
+                          "text": "npx jest",
+                          "code": true
+                        },
+                        {
+                          "text": " 执行测试。"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -844,7 +887,7 @@
         },
         {
           "file": "package.json",
-          "display": true,
+          "display": false,
           "commit": "0b710d1d9ed03c4663748ccc10b337a11bccab3f",
           "type": "file",
           "children": [
@@ -856,7 +899,7 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "CRA 已经为我们配置好了 Jest"
+                      "text": ""
                     }
                   ]
                 }
@@ -1002,7 +1045,37 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "除了使代码更具可读性之外，它还有助于在出现错误时提供更好的错误消息。如果这里我们将第一条测试用例改为 `"
+                      "text": "除了使代码更具可读性之外，它还有助于在出现错误时提供更好的错误消息。如果这里我们将第一条测试用例改为 "
+                    },
+                    {
+                      "text": "expect(typeof Math.random()).toEqual('string')",
+                      "code": true
+                    },
+                    {
+                      "text": " ，那么再运行 "
+                    },
+                    {
+                      "text": "npx jest",
+                      "code": true
+                    },
+                    {
+                      "text": " ，就会出现如下错误信息："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "【待插入图片】"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "是不是一目了然呢？"
                     }
                   ]
                 }
@@ -1494,7 +1567,70 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "可以看到，这里我们用 "
+                    },
+                    {
+                      "text": "shallow",
+                      "code": true
+                    },
+                    {
+                      "text": " 函数来浅层渲染 "
+                    },
+                    {
+                      "text": "App",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件得到 "
+                    },
+                    {
+                      "text": "app",
+                      "code": true
+                    },
+                    {
+                      "text": " ，并且调用其 "
+                    },
+                    {
+                      "text": "containsMatchingElement",
+                      "code": true
+                    },
+                    {
+                      "text": " 来判断渲染后的 "
+                    },
+                    {
+                      "text": "App",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件是否包含 "
+                    },
+                    {
+                      "text": "<h1>Hello world!</h1>",
+                      "code": true
+                    },
+                    {
+                      "text": " 元素。"
+                    }
+                  ]
+                },
+                {
+                  "type": "block-quote",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "Enzyme 浅层渲染后的组件还包括其他测试方法，可参考 "
+                        },
+                        {
+                          "text": "https://enzymejs.github.io/enzyme/docs/api/shallow.html",
+                          "link": true,
+                          "url": "https://enzymejs.github.io/enzyme/docs/api/shallow.html"
+                        },
+                        {
+                          "text": "。"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1510,7 +1646,22 @@
               "type": "paragraph",
               "children": [
                 {
-                  "text": ""
+                  "text": "通过 "
+                },
+                {
+                  "text": "npm test",
+                  "code": true
+                },
+                {
+                  "text": " 命令，我们就可以看到刚才的测试通过了："
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "【待插入图片】"
                 }
               ]
             }
@@ -1543,7 +1694,14 @@
               "type": "paragraph",
               "children": [
                 {
-                  "text": ""
+                  "text": "在实际的前端开发中，我们的组件要复杂很多。本着循序渐进的原则，我们稍微前进一步：来编写一个接受 "
+                },
+                {
+                  "text": "props",
+                  "code": true
+                },
+                {
+                  "text": " 的组件，并根据数据来决定渲染结果。"
                 }
               ]
             }
@@ -1682,6 +1840,54 @@
           ]
         },
         {
+          "file": "src/setupTests.js",
+          "display": true,
+          "commit": "2ee6b58449f7570a465b349455186e5916058080",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "配置 jest-enzyme"
+                    }
+                  ],
+                  "id": "IG9G8vHW6"
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/setupTests.js",
+              "commit": "2ee6b58449f7570a465b349455186e5916058080",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "file": "src/TodoList.js",
           "display": true,
           "commit": "2ee6b58449f7570a465b349455186e5916058080",
@@ -1751,53 +1957,6 @@
             {
               "type": "diff-block",
               "file": "src/TodoList.test.js",
-              "commit": "2ee6b58449f7570a465b349455186e5916058080",
-              "hiddenLines": [],
-              "children": [
-                {
-                  "text": ""
-                }
-              ]
-            },
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "file": "src/setupTests.js",
-          "display": true,
-          "commit": "2ee6b58449f7570a465b349455186e5916058080",
-          "type": "file",
-          "children": [
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "diff-block",
-              "file": "src/setupTests.js",
               "commit": "2ee6b58449f7570a465b349455186e5916058080",
               "hiddenLines": [],
               "children": [
