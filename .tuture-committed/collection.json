@@ -7,7 +7,7 @@
     {
       "id": "5e1396b8",
       "name": "JavaScript 测试系列实战",
-      "description": "",
+      "description": "你或许早已经知道“单元测试”“端到端测试”这些名词，但从未真正付诸实践。在这一系列实战教程中，我们将手把手带你掌握 Jest、Enzyme、Cypress 等测试利器，帮助我们从 bug 的沼泽中挣脱出来，成为一个无往不利的高阶前端开发者！",
       "topics": [],
       "categories": [],
       "created": "2020-08-20T12:04:01.397Z",
@@ -593,7 +593,7 @@
               "type": "paragraph",
               "children": [
                 {
-                  "text": "测试是检查代码的代码。测试可能会让您对应用程序更有信心。它们也会阻止你在修复一件事情的同时破坏另一件事情。您可以测试应用程序的许多方面，从单个函数及其返回值到在浏览器中运行的复杂应用程序。由于这是本课程的第一篇文章，我们将简要比较流行的测试类型。"
+                  "text": "测试是检查代码的代码，能够大大增强我们对应用的信心。更重要的是，测试会阻止你在修复一件事情的同时破坏另一件事情，让我们能够放开手脚进行功能的添加与大规模重构。您可以测试应用程序的许多方面，从单个函数及其返回值到在浏览器中运行的复杂应用程序。万丈高楼平地起，让我们先来了解一下有哪些测试。"
                 }
               ]
             },
@@ -834,6 +834,121 @@
                   "type": "paragraph",
                   "children": [
                     {
+                      "text": "作为本系列教程的第一个 Jest 测试，我们来详细讲解一下："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "我们先导入需要测试的单元/模块"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "test",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数定义了一个"
+                        },
+                        {
+                          "text": "测试用例",
+                          "bold": true
+                        },
+                        {
+                          "text": "，第一个参数就是"
+                        },
+                        {
+                          "text": "用例描述",
+                          "bold": true
+                        },
+                        {
+                          "text": "，一般是一句完整的描述，例如上面的 "
+                        },
+                        {
+                          "text": "dividing 6 by 3 equals 2",
+                          "code": true
+                        },
+                        {
+                          "text": " ；第二个参数则是一个待执行的"
+                        },
+                        {
+                          "text": "测试函数",
+                          "bold": true
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "在测试函数中，最重要的组成部分就是"
+                        },
+                        {
+                          "text": "断言",
+                          "bold": true
+                        },
+                        {
+                          "text": "（Assertion），例如上面的 "
+                        },
+                        {
+                          "text": "expect(divide(6, 3)).toBe(2)",
+                          "code": true
+                        },
+                        {
+                          "text": " "
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "断言的核心是 "
+                        },
+                        {
+                          "text": "expect",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数，它接受一个表达式，然后后面可以调用 Matcher 来测试该表达式是否符合条件，例如这里我们就使用了最常用的 "
+                        },
+                        {
+                          "text": "toBe",
+                          "code": true
+                        },
+                        {
+                          "text": " Matcher；Jest 还提供了大量的 Matcher，可以帮助我们写出更简洁可读的断言语句，可参考 "
+                        },
+                        {
+                          "text": "Expect API",
+                          "link": true,
+                          "url": "https://jestjs.io/docs/zh-Hans/expect"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
                       "text": "CRA 已经为我们配置好了 Jest，这里直接运行 "
                     },
                     {
@@ -846,10 +961,24 @@
                   ]
                 },
                 {
-                  "type": "paragraph",
+                  "type": "code-block",
+                  "lang": "",
                   "children": [
                     {
-                      "text": "[待插入图片]"
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "PASS  ./divide.test.js"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  ✓ dividing 6 by 3 equals 2 (5ms)"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -964,14 +1093,14 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "每个测试文件通常有多个测试。Jest 允许我们通过 "
+                      "text": "每个测试文件通常有多个测试用例。Jest 允许我们通过 "
                     },
                     {
                       "text": "describe",
                       "code": true
                     },
                     {
-                      "text": " 函数对测试进行分组，它创建了一个可以组合多个测试的块。让我们对全局 "
+                      "text": " 函数对测试用例进行分组，它创建了一个可以组合多个测试的块。让我们对全局 "
                     },
                     {
                       "text": "Math",
@@ -1064,10 +1193,80 @@
                   ]
                 },
                 {
-                  "type": "paragraph",
+                  "type": "code-block",
+                  "lang": "",
                   "children": [
                     {
-                      "text": "【待插入图片】"
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "FAIL  ./math.test.js"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  ● in the math global object › the random function › should return a number"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    expect(received).toEqual(expected)"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    Expected value to equal:"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      \"string\""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    Received:"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      \"number\""
+                        }
+                      ]
                     }
                   ]
                 },
@@ -1100,7 +1299,14 @@
               "type": "paragraph",
               "children": [
                 {
-                  "text": "我们已经解释了最基本的 JavaScript 测试类型是什么。我们讨论的第一种类型的测试是单元测试。为了执行它们，我们学习了 Jestframework 的基本知识。它包含了如何运行测试(安装和文件命名)的知识。为了运行测试，我们使用了 test、 it 和 describe 函数。"
+                  "text": "在这一小节中，我们首先了解了测试有哪些类型。然后我们在 CRA 脚手架中编写了一个简单的函数，并为之编写了第一个单元测试，熟悉了测试用例、断言、Matcher 这些关键概念，并成功地通过了测试。接着，我们又编写了一个包含多个用例的测试文件，并通过 "
+                },
+                {
+                  "text": "describe",
+                  "code": true
+                },
+                {
+                  "text": " 函数将测试用例组织得井井有条。"
                 }
               ]
             }
@@ -1658,10 +1864,32 @@
               ]
             },
             {
-              "type": "paragraph",
+              "type": "code-block",
+              "lang": "",
               "children": [
                 {
-                  "text": "【待插入图片】"
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "PASS  app/App.test.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  app component"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    ✓ contains a header with the \"Hello world!\""
+                    }
+                  ]
                 }
               ]
             }
@@ -1857,6 +2085,66 @@
                     }
                   ],
                   "id": "IG9G8vHW6"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "你应该还记得，在刚才的测试代码中，我们还是使用了 Jest 自带的 Matcher（"
+                    },
+                    {
+                      "text": "toEqual",
+                      "code": true
+                    },
+                    {
+                      "text": "）。但实际上，社区还提供了更好的选择——专门为 Enzyme 定制的 Matcher 库："
+                    },
+                    {
+                      "text": "enzyme-matchers",
+                      "link": true,
+                      "url": "https://github.com/FormidableLabs/enzyme-matchers"
+                    },
+                    {
+                      "text": "。这些 Matcher 使得编写断言语句更轻松、更具可读性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们通过 npm 来安装 jest-enzyme："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "npm install jest-enzyme"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "相应地在 "
+                    },
+                    {
+                      "text": "src/setupTests.js",
+                      "code": true
+                    },
+                    {
+                      "text": " 中添加相应的配置："
+                    }
+                  ]
                 }
               ]
             },
@@ -1898,10 +2186,33 @@
               "fixed": true,
               "children": [
                 {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "编写 TodoList 组件"
+                    }
+                  ],
+                  "id": "zQMvmKHW1"
+                },
+                {
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "这次，我们还是编写一个熟悉的 "
+                    },
+                    {
+                      "text": "TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件。创建 "
+                    },
+                    {
+                      "text": "src/TodoList.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
                     }
                   ]
                 }
@@ -1926,7 +2237,14 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "可以看到，这个组件接受一个 "
+                    },
+                    {
+                      "text": "tasks",
+                      "code": true
+                    },
+                    {
+                      "text": " 数组，并将其渲染成一个列表。"
                     }
                   ]
                 }
@@ -1945,10 +2263,80 @@
               "fixed": true,
               "children": [
                 {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "编写 TodoList 组件测试"
+                    }
+                  ],
+                  "id": "_iHe8QxJJ"
+                },
+                {
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "先思考一下，如果要测试上面的 "
+                    },
+                    {
+                      "text": "TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件，要考虑哪些情况？不难想到主要是两种情况："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "传入的 "
+                        },
+                        {
+                          "text": "tasks",
+                          "code": true
+                        },
+                        {
+                          "text": " 数组为空"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "传入的 "
+                        },
+                        {
+                          "text": "tasks",
+                          "code": true
+                        },
+                        {
+                          "text": " 数组不为空"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "对应这两种情况，我们开始编写测试。创建 "
+                    },
+                    {
+                      "text": "src/TodoList.test.js",
+                      "code": true
+                    },
+                    {
+                      "text": " ，代码如下："
                     }
                   ]
                 }
@@ -1973,7 +2361,56 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "可以看到在第一个测试用例中，我们使用了 "
+                    },
+                    {
+                      "text": "toContainReact",
+                      "code": true
+                    },
+                    {
+                      "text": " 这个 Matcher，它的含义十分明显，一目了然；在后面的测试用例中，我们通过 "
+                    },
+                    {
+                      "text": "todoList.find('li')",
+                      "code": true
+                    },
+                    {
+                      "text": " 来获取 "
+                    },
+                    {
+                      "text": "li",
+                      "code": true
+                    },
+                    {
+                      "text": " 元素数组，并判断它的长度是否符合要求。"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "你也许发现我们并没有去验证 "
+                        },
+                        {
+                          "text": "TodoList",
+                          "code": true
+                        },
+                        {
+                          "text": " 每一项是否符合，这是因为我们用了 Enzyme 的浅层渲染，这意味着所有的 "
+                        },
+                        {
+                          "text": "children",
+                          "code": true
+                        },
+                        {
+                          "text": " 都是处于未渲染状态，当然就无法验证内容是否正确了。我们将在下一篇教程中讲解如何去更“深层”地去测试我们的组件。"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -1989,7 +2426,108 @@
               "type": "paragraph",
               "children": [
                 {
-                  "text": ""
+                  "text": "运行 "
+                },
+                {
+                  "text": "npm test",
+                  "code": true
+                },
+                {
+                  "text": " ，查看测试结果，全部通过："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "PASS  app/App.test.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "PASS  app/components/ToDoList/ToDoList.test.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Test Suites: 2 passed, 2 total"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Tests:       4 passed, 4 total"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Snapshots:   0 total"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Time:        1.41s"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Ran all test suites."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "abiioWnke"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在过去的两个小节中，我们了解、安装和配置了 Enzyme，并且接触了 "
+                },
+                {
+                  "text": "shallow",
+                  "code": true
+                },
+                {
+                  "text": " 浅层渲染这个单元测试利器，并且循序渐进测试了两个 React 组件。但是你应该也注意到了，有些时候浅层渲染并不能完全满足我们的需求，Enzyme 还提供了其他渲染方式以供测试。我们在下篇教程中将讲解新的渲染方式，并介绍快照测试以及 mock 数据，不见不散哦！"
                 }
               ]
             }
