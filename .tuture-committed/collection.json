@@ -6,12 +6,20 @@
   "articles": [
     {
       "id": "5e1396b8",
-      "name": "JavaScript 测试系列实战",
-      "description": "你或许早已经知道“单元测试”“端到端测试”这些名词，但从未真正付诸实践。在这一系列实战教程中，我们将手把手带你掌握 Jest、Enzyme、Cypress 等测试利器，帮助我们从 bug 的沼泽中挣脱出来，成为一个无往不利的高阶前端开发者！",
-      "topics": [],
-      "categories": [],
+      "name": "JavaScript 测试系列实战（一）：使用 Jest 和 Enzyme 测试 React 组件",
+      "description": "你或许早已经知道“单元测试”“端到端测试”这些名词，但从未真正付诸实践。在这一系列实战教程中，我们将手把手带你掌握 Jest、Enzyme、Cypress 等测试利器，帮助我们从 bug 的沼泽中挣脱出来，成为一个无往不利的高阶前端开发者！本篇教程是 JavaScript 测试系列实战 的第一篇教程，首先介绍了测试的类型，然后主要通过一个 React 项目教会你如何使用 Jest 编写第一个测试，然后使用 Enzyme 对 React 组件进行浅层渲染，以方便对不同层次的组件进行细粒度测试，当学习了这篇教程之后，你将对基础的测试编写、组件的测试有一个比较好的了解。",
+      "topics": [
+        "React",
+        "Jest",
+        "Enzyme"
+      ],
+      "categories": [
+        "前端",
+        "React",
+        "进阶"
+      ],
       "created": "2020-08-20T12:04:01.397Z",
-      "cover": ""
+      "cover": "https://static.tuture.co/c/f40c6ff/js-test-cover-1.jpg"
     }
   ],
   "steps": [
