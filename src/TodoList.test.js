@@ -48,5 +48,10 @@ describe('ToDoList component', () => {
         expect(listItem.text()).toBe(matchingTask.name);
       });
     });
+
+    it('should render correctly', () => {
+      const toDoListInstance = shallow(<ToDoList tasks={tasks} />);
+      expect(toDoListInstance).toMatchSnapshot();
+    });
   });
 });
