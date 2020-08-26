@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import ToDoList from './ToDoList';
 
@@ -35,6 +35,17 @@ describe('ToDoList component', () => {
         const taskProps = taskInstance.props();
         const matchingTask = tasks.find((task) => task.id === taskProps.id);
         expect(taskProps.name).toBe(matchingTask.name);
+      });
+    });
+
+    it('contains a matching number of <li> elements', () => {
+      const toDoListInstance = mount(<ToDoList tasks={tasks} />);
+
+      toDoListInstance.find('Task').forEach((taskInstance) => {
+        const taskProps = taskInstance.props();
+        const matchingTask = tasks.find((task) => task.id === taskProps.id);
+        const listItem = taskInstance.first('li');
+        expect(listItem.text()).toBe(matchingTask.name);
       });
     });
   });
