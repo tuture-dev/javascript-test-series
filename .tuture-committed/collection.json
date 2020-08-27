@@ -20,6 +20,23 @@
       ],
       "created": "2020-08-20T12:04:01.397Z",
       "cover": "https://static.tuture.co/c/f40c6ff/js-test-cover-1.jpg"
+    },
+    {
+      "id": "387f95a1",
+      "created": "2020-08-27T01:29:43.320Z",
+      "name": "JavaScript 测试系列实战（二）：深层渲染和快照测试",
+      "topics": [
+        "React",
+        "Jest",
+        "Enzyme"
+      ],
+      "categories": [
+        "前端",
+        "React",
+        "进阶"
+      ],
+      "cover": "https://static.tuture.co/c/f40c6ff/js-test-cover-2.jpg",
+      "description": "在上一篇教程中，我们已经介绍了使用 Enzyme 测试 React 组件的基本知识。今天，我们将更深入地挖掘并学习如何测试组件的 Props，如何（以及为什么）使用 mount 函数，以及什么是 Jest 快照测试。"
     }
   ],
   "steps": [
@@ -2536,6 +2553,856 @@
                 },
                 {
                   "text": " 浅层渲染这个单元测试利器，并且循序渐进测试了两个 React 组件。但是你应该也注意到了，有些时候浅层渲染并不能完全满足我们的需求，Enzyme 还提供了其他渲染方式以供测试。我们在下篇教程中将讲解新的渲染方式，并介绍快照测试以及 mock 数据，不见不散哦！"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+      "id": "4a8beb29",
+      "articleId": "387f95a1",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+          "id": "9ace0000",
+          "fixed": true,
+          "children": [
+            {
+              "text": "测试组件的 Props"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在前一篇文章中，我们已经测试了传递 Props 给组件的情况。但实际上，我们可以直接测试 Props。让我们回到之前写的 ToDoList 组件，但是这次我们使用一个 Task 组件。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/Task.js",
+          "display": true,
+          "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Task 组件的代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/Task.js",
+              "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.js",
+          "display": true,
+          "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "修改后的 TodoList 组件代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.js",
+              "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.test.js",
+          "display": true,
+          "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后我们来测试 ToDoList 组件是否能够渲染 Task 组件并传递正确的 Props："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.test.js",
+              "commit": "85d5d59ee97d5c24546322d5b40a5577937aa390",
+              "hiddenLines": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  6,
+                  16
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "通过上面的测试代码，我们可以确定 Task 组件从 ToDoList 收到了正确的 Props。由于 "
+                    },
+                    {
+                      "text": "toDoListInstance",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "taskInstance",
+                      "code": true
+                    },
+                    {
+                      "text": " 都是继承自 Enzyme 浅包装器 "
+                    },
+                    {
+                      "text": "ShallowWrapper",
+                      "code": true
+                    },
+                    {
+                      "text": "，因此可以调用 "
+                    },
+                    {
+                      "text": "props",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法来获取一个组件传入的 Props。不仅如此，我们还可以检查组件状态，甚至更改状态。想要查看可用函数的完整列表，可以浏览 "
+                    },
+                    {
+                      "text": "Enzyme 文档",
+                      "link": true,
+                      "url": "https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md"
+                    },
+                    {
+                      "text": "。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "044e603c0157f23e8140ba33ef9671428ff66fdd",
+      "id": "904d9880",
+      "articleId": "387f95a1",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "044e603c0157f23e8140ba33ef9671428ff66fdd",
+          "id": "96957338",
+          "fixed": true,
+          "children": [
+            {
+              "text": "通过 mount 进行完全渲染测试"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "但是，如果我们想测试 Task 组件中 "
+                },
+                {
+                  "text": "li",
+                  "code": true
+                },
+                {
+                  "text": " 标签的实际内容呢？也许我们可以像下面这样写："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "js",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "toDoListInstance.find('Task').forEach(taskInstance => {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  const taskProps = taskInstance.props();"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  const matchingTask = tasks.find(task => task.id === taskProps.id);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  const listItem = taskInstance.first('li');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  expect(listItem.text()).toBe(matchingTask.name);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "如果运行测试，我们会遇到一个错误:"
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "FAIL app/components/ToDoList/ToDoList.test.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": " ● ToDoList component › when provided with array of tasks › passes them to the Task components"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  expect(received).toBe(expected) // Object.is equality"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  Expected: \"Wash the dishes\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  Received: \"<Task />\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "   23 |     const matchingTask = tasks.find(task => task.id === taskProps.id);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "   24 |     const listItem = taskInstance.first('li');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \\> 25 |     expect(listItem.text()).toBe(matchingTask.name);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "​     |                 ^"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "   26 |    })"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "   27 |   })"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "   28 |  });"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这里之所以失败，是因为浅层渲染 shallow 的局限性：子组件 Task 将根本不会渲染，因此就无法判断是否渲染出正确的内容。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.test.js",
+          "display": true,
+          "commit": "044e603c0157f23e8140ba33ef9671428ff66fdd",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "针对浅层渲染的局限性，Enzyme 提供了完全渲染函数 "
+                    },
+                    {
+                      "text": "mount",
+                      "code": true
+                    },
+                    {
+                      "text": "。修改 TodoList 测试文件，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.test.js",
+              "commit": "044e603c0157f23e8140ba33ef9671428ff66fdd",
+              "hiddenLines": [
+                [
+                  7,
+                  39
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "上面的代码会将完整的 ToDoList 和它所有子组件一起渲染。因此，之前失败的测试现在就会通过。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "由于 "
+                },
+                {
+                  "text": "mount",
+                  "code": true
+                },
+                {
+                  "text": " 函数会模拟实际的 DOM，渲染成本更高，因此运行测试会花费更多的时间。通常我们会在集成测试中使用 "
+                },
+                {
+                  "text": "mount",
+                  "code": true
+                },
+                {
+                  "text": " 函数，测试组件之间如何协同工作，而不仅仅是作为独立的单元。"
+                }
+              ]
+            },
+            {
+              "type": "block-quote",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你不了解单元测试和集成测试这两个术语，可以看下本系列第一篇教程。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在测试与 DOM 的交互或者在处理高阶组件时，mount 函数也可以派上用场。"
+                },
+                {
+                  "text": "Mount 使用 DOM 实现的模拟，Jest 默认使用的是 jsdom。我们可以通过调整 ",
+                  "italic": true
+                },
+                {
+                  "text": "testEnvironment",
+                  "italic": true,
+                  "code": true
+                },
+                {
+                  "text": " "
+                },
+                {
+                  "text": "属性更改。",
+                  "italic": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "90f50e4bc85425dda71fc90e0b8ee856f84e6012",
+      "id": "c8064f9d",
+      "articleId": "387f95a1",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "90f50e4bc85425dda71fc90e0b8ee856f84e6012",
+          "id": "53f5641a",
+          "fixed": true,
+          "children": [
+            {
+              "text": "尝鲜 Jest Snapshot 测试"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "快照测试是 Jest 的一大招牌功能。所谓快照，可以简单地理解成是我们应用的一个"
+                },
+                {
+                  "text": "“代码截图”",
+                  "bold": true
+                },
+                {
+                  "text": "。当我们运行快照测试时，Jest 将会渲染组件并创建其快照文件。这个快照文件包含渲染后组件的整个结构，并且应该与测试文件本身一起提交到代码库。当我们再次运行快照测试时，Jest 会将新的快照与旧的快照进行比较，如果两者不一致，测试就会失败，从而帮助我们确保用户界面不会发生意外改变。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.test.js",
+          "display": true,
+          "commit": "90f50e4bc85425dda71fc90e0b8ee856f84e6012",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在 TodoList 的测试代码中添加快照测试："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.test.js",
+              "commit": "90f50e4bc85425dda71fc90e0b8ee856f84e6012",
+              "hiddenLines": [
+                [
+                  0,
+                  46
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/__snapshots__/TodoList.test.js.snap",
+          "display": true,
+          "commit": "90f50e4bc85425dda71fc90e0b8ee856f84e6012",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "运行上面的代码后，就会产生 ToDoList.test.js.snap 文件，它的内容如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/__snapshots__/TodoList.test.js.snap",
+              "commit": "90f50e4bc85425dda71fc90e0b8ee856f84e6012",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "如果我们要对 ToDoList 组件进行任何更改，快照测试就会失败，并且显示当前渲染结果与快照之间的精确差异。如果我们要更新所有失败的快照，可以使用 "
+                },
+                {
+                  "text": "-u",
+                  "code": true
+                },
+                {
+                  "text": " 标志(别名为 "
+                },
+                {
+                  "text": "--updateSnapshot",
+                  "code": true
+                },
+                {
+                  "text": ") 来运行 Jest。输入以下命令，一键更新所有快照： "
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "npm test -- -u"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "实际上，目前 CRA 默认会在监听模式下运行 Jest，我们可以一个个更新冲突的快照。首先运行 "
+                },
+                {
+                  "text": "npm test",
+                  "code": true
+                },
+                {
+                  "text": " ，然后输入 "
+                },
+                {
+                  "text": "i",
+                  "code": true
+                },
+                {
+                  "text": " 以交互方式更新失败的快照。官方的 Jest 文档提供了一个动画来展示这个过程："
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "url": "https://static.tuture.co/c/f40c6ff/interactiveSnapshotUpdate.gif",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你的 CRA 版本比较老，可以通过 "
+                    },
+                    {
+                      "text": "npm test -- --watchAll",
+                      "code": true
+                    },
+                    {
+                      "text": " 来进入 Jest 监听模式。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "LIBTDeSLe"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在本文中，我们介绍了如何直接去测试组件的 Props，并学习了 mount 函数和浅层渲染之间的区别。除此之外，我们还介绍了 Jest 快照测试，这是一个非常强大的工具，可以追踪组件渲染方式的变化。在接下来的文章中，我们还将介绍测试中常见的 Mock 技巧——与组件的模拟交互，不见不散！"
                 }
               ]
             }
