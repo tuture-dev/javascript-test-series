@@ -65,4 +65,49 @@ describe('ToDoList component', () => {
       expect(getSpy).toBeCalled();
     });
   });
+
+  describe('when the value of its input is changed', () => {
+    it('its state should be changed', () => {
+      const toDoListInstance = shallow(<ToDoList />);
+      const newTask = 'new task name';
+      const taskInput = toDoListInstance.find('input');
+      taskInput.simulate('change', { target: { value: newTask } });
+      expect(toDoListInstance.state().newTask).toEqual(newTask);
+    });
+  });
+
+  describe('when the button is clicked with the input filled out', () => {
+    it('a post request should be made', () => {
+      const toDoListInstance = shallow(<ToDoList />);
+      const postSpy = jest.spyOn(axios, 'post');
+      const newTask = 'new task name';
+      const taskInput = toDoListInstance.find('input');
+      taskInput.simulate('change', { target: { value: newTask } });
+
+      const button = toDoListInstance.find('button');
+      button.simulate('click');
+
+      expect(postSpy).toBeCalled();
+    });
+  });
+
+  describe('when the button is clicked with the input filled out, the new task should be added to the state', () => {
+    it('a post request should be made', () => {
+      const toDoListInstance = shallow(<ToDoList />);
+      const postSpy = jest.spyOn(axios, 'post');
+      const newTask = 'new task name';
+      const taskInput = toDoListInstance.find('input');
+      taskInput.simulate('change', { target: { value: newTask } });
+
+      const button = toDoListInstance.find('button');
+      button.simulate('click');
+
+      const postPromise = postSpy.mock.results.pop().value;
+
+      return postPromise.then((postResponse) => {
+        const currentState = toDoListInstance.state();
+        expect(currentState.tasks.includes(postResponse.data.task)).toBe(true);
+      });
+    });
+  });
 });
