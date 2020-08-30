@@ -1,5 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import axios from 'axios';
+
+jest.mock('axios');
 
 import ToDoList from './ToDoList';
 
@@ -52,6 +55,14 @@ describe('ToDoList component', () => {
     it('should render correctly', () => {
       const toDoListInstance = shallow(<ToDoList tasks={tasks} />);
       expect(toDoListInstance).toMatchSnapshot();
+    });
+  });
+
+  describe('when rendered', () => {
+    it('should fetch a list of tasks', () => {
+      const getSpy = jest.spyOn(axios, 'get');
+      const toDoListInstance = shallow(<ToDoList />);
+      expect(getSpy).toBeCalled();
     });
   });
 });
