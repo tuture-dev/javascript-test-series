@@ -37,6 +37,22 @@
       ],
       "cover": "https://static.tuture.co/c/f40c6ff/js-test-cover-2.jpg",
       "description": "在上一篇教程中，我们已经介绍了使用 Enzyme 测试 React 组件的基本知识。今天，我们将更深入地挖掘并学习如何测试组件的 Props，如何（以及为什么）使用 mount 函数，以及什么是 Jest 快照测试。"
+    },
+    {
+      "id": "34217fa9",
+      "created": "2020-08-31T06:34:17.128Z",
+      "name": "JavaScript 测试系列实战（三）：深层渲染和快照测试",
+      "topics": [
+        "React",
+        "Jest",
+        "Enzyme"
+      ],
+      "categories": [
+        "前端",
+        "React",
+        "进阶"
+      ],
+      "cover": ""
     }
   ],
   "steps": [
@@ -3411,6 +3427,812 @@
               "children": [
                 {
                   "text": "在本文中，我们介绍了如何直接去测试组件的 Props，并学习了 mount 函数和浅层渲染之间的区别。除此之外，我们还介绍了 Jest 快照测试，这是一个非常强大的工具，可以追踪组件渲染方式的变化。在接下来的文章中，我们还将介绍测试中常见的 Mock 技巧——与组件的模拟交互，不见不散！"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+      "id": "fdec7cc8",
+      "articleId": "34217fa9",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+          "id": "94a2160f",
+          "fixed": true,
+          "children": [
+            {
+              "text": "初次尝试 Jest Mock"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们的应用程序通常需要从外部的 API 获取数据。在编写测试时，外部 API 可能由于各种原因而失败。我们希望我们的测试是可靠和独立的，而最常见的解决方案就是 Mock。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "改写 TodoList 组件"
+                }
+              ],
+              "id": "nrgIPel1d"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "首先让我们改造组件，使其能够通过 API 获取数据。安装 axios："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "npm install axios"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": "package-lock.json",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package-lock.json",
+              "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+              "hiddenLines": [
+                [
+                  0,
+                  2512
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": false,
+          "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+              "hiddenLines": [
+                [
+                  0,
+                  4
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.js",
+          "display": true,
+          "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后改写 "
+                    },
+                    {
+                      "text": "TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.js",
+              "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 被改造成了一个“聪明组件”，在 "
+                    },
+                    {
+                      "text": "componentDidMount",
+                      "code": true
+                    },
+                    {
+                      "text": " 生命周期函数中通过 "
+                    },
+                    {
+                      "text": "axios",
+                      "code": true
+                    },
+                    {
+                      "text": " 模块异步获取数据。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/__mocks__/axios.js",
+          "display": true,
+          "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "编写 axios 模块的 mock 文件"
+                    }
+                  ],
+                  "id": "liHOzzkHf"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/__mocks__/axios.js",
+              "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.test.js",
+          "display": true,
+          "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.test.js",
+              "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+              "hiddenLines": [
+                [
+                  9,
+                  58
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/__snapshots__/TodoList.test.js.snap",
+          "display": false,
+          "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/__snapshots__/TodoList.test.js.snap",
+              "commit": "8e302e8b465eceffa937897caf6b21cdafc3f2d4",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "94383096931adfda215c8d386a833993e8932105",
+      "id": "1fd5caed",
+      "articleId": "34217fa9",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "94383096931adfda215c8d386a833993e8932105",
+          "id": "365eaf7a",
+          "fixed": true,
+          "children": [
+            {
+              "text": "迭代 TodoList 组件"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".gitignore",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".gitignore",
+              "commit": "94383096931adfda215c8d386a833993e8932105",
+              "hiddenLines": [
+                [
+                  0,
+                  19
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".tutureignore",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".tutureignore",
+              "commit": "94383096931adfda215c8d386a833993e8932105",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.js",
+          "display": true,
+          "commit": "94383096931adfda215c8d386a833993e8932105",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.js",
+              "commit": "94383096931adfda215c8d386a833993e8932105",
+              "hiddenLines": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  14,
+                  18
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/__snapshots__/TodoList.test.js.snap",
+          "display": true,
+          "commit": "94383096931adfda215c8d386a833993e8932105",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/__snapshots__/TodoList.test.js.snap",
+              "commit": "94383096931adfda215c8d386a833993e8932105",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+      "id": "decb91ee",
+      "articleId": "34217fa9",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+          "id": "f092d430",
+          "fixed": true,
+          "children": [
+            {
+              "text": "在测试中模拟 React 组件的交互"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoList.test.js",
+          "display": true,
+          "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoList.test.js",
+              "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+              "hiddenLines": [
+                [
+                  0,
+                  63
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/__mocks__/axios.js",
+          "display": true,
+          "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/__mocks__/axios.js",
+              "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+              "hiddenLines": [
+                [
+                  7,
+                  15
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
                 }
               ]
             }
