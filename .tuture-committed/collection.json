@@ -52,7 +52,8 @@
         "React",
         "进阶"
       ],
-      "cover": ""
+      "cover": "",
+      "description": "在之前的两篇教程中，我们学会了如何去测试最简单的 React 组件。在实际开发中，我们的组件经常需要从外部 API 获取数据，并且组件的交互逻辑也往往更复杂。在这篇教程中，我们将学习如何测试更复杂的组件，包括用 Mock 去编写涉及外部 API 的测试，以及通过 Enzyme 来轻松模拟组件交互"
     }
   ],
   "steps": [
@@ -3694,7 +3695,14 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "Jest 支持对整个模块进行 Mock，使得组件不会调用原始的模块，而是调用我们预设的 Mock 模块。按照官方推荐，我们创建 "
+                    },
+                    {
+                      "bold": true,
+                      "text": "mocks"
+                    },
+                    {
+                      "text": " 目录并把 mock 文件放到其中。创建 axios 的 Mock 文件 axios.js，代码如下："
                     }
                   ]
                 }
@@ -3719,7 +3727,14 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "这里的 axios 模块提供了一个 "
+                    },
+                    {
+                      "text": "get",
+                      "code": true
+                    },
+                    {
+                      "text": " 函数，并且会返回一个 Promise，包含预先设定的假数据。"
                     }
                   ]
                 }
@@ -3738,10 +3753,33 @@
               "fixed": true,
               "children": [
                 {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "通过 spyOn 函数检查 Mock 模块调用情况"
+                    }
+                  ],
+                  "id": "bL2J0ym9M"
+                },
+                {
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "让我们开始 Mock 起来！打开 TodoList 的测试文件，首先在最前面通过 "
+                    },
+                    {
+                      "text": "jest.mock",
+                      "code": true
+                    },
+                    {
+                      "text": " 配置 axios 模块的 Mock（确保要在 "
+                    },
+                    {
+                      "text": "import TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 之前），在 Mock 之后，无论在测试还是组件中使用的都将是 Mock 版本的 axios。然后创建一个测试用例，检查 Mock 模块是否被正确调用。代码如下："
                     }
                   ]
                 }
@@ -3771,7 +3809,21 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "测试模块中一个函数是否被调用实际上是比较困难的，但是所幸 Jest 为我们提供了完整的支持。首先通过 "
+                    },
+                    {
+                      "text": "jest.spyOn",
+                      "code": true
+                    },
+                    {
+                      "text": "，我们便可以监听一个函数的使用情况，然后使用配套的 "
+                    },
+                    {
+                      "text": "toBeCalled",
+                      "code": true
+                    },
+                    {
+                      "text": " Matcher 来判断该函数是否被调用。整体代码十分简洁，同时也保持了很好的可读性。"
                     }
                   ]
                 }
@@ -3831,10 +3883,15 @@
           "fixed": true,
           "children": [
             {
-              "type": "paragraph",
+              "type": "block-quote",
               "children": [
                 {
-                  "text": ""
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你忘记了 Jest Matcher 的含义，推荐阅读本系列的第一篇教程。"
+                    }
+                  ]
                 }
               ]
             }
@@ -3984,7 +4041,15 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "一个实际的项目总会不断迭代，当然也包括我们的 TodoList 组件。对于一个待办事项应用来说，最重要的当然便是添加新的待办事项。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "修改 TodoList 组件，代码如下："
                     }
                   ]
                 }
@@ -4018,7 +4083,21 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "由于我们大幅改动了 TodoList 组件，我们需要更新快照："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "shell",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "npm test -- -u"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -4037,10 +4116,23 @@
               "fixed": true,
               "children": [
                 {
+                  "type": "block-quote",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "如果你不熟悉 Jest 快照测试，请回看本系列第二篇教程。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "更新后的快照文件反映了我们刚刚做的变化："
                     }
                   ]
                 }
@@ -4114,7 +4206,530 @@
               "type": "paragraph",
               "children": [
                 {
+                  "text": "在上面迭代的 TodoList 中，我们使用了 axios.post。 这意味着我们需要扩展 axios 的 mock 文件："
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/__mocks__/axios.js",
+          "display": true,
+          "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/__mocks__/axios.js",
+              "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+              "hiddenLines": [
+                [
+                  7,
+                  15
+                ]
+              ],
+              "children": [
+                {
                   "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "block-quote",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "可以看到上面，我们添加了一个 "
+                        },
+                        {
+                          "text": "currentId",
+                          "code": true
+                        },
+                        {
+                          "text": " 变量，因为我们需要保持每个 task 的唯一性。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "让我们开始测试吧！我们测试的第一件事是检查修改输入值是否更改了我们的状态："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们修改 "
+                    },
+                    {
+                      "text": "app/components/TodoList.test.js",
+                      "code": true
+                    },
+                    {
+                      "text": " 如下："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "js",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import React from 'react';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import { shallow } from 'enzyme';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import ToDoList from './ToDoList';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "describe('ToDoList component', () => {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  describe('when the value of its input is changed', () => {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    it('its state should be changed', () => {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const toDoListInstance = shallow("
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "        <ToDoList/>"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      );"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const newTask = 'new task name';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const taskInput = toDoListInstance.find('input');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      taskInput.simulate('change', { target: { value: newTask }});"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      expect(toDoListInstance.state().newTask).toEqual(newTask);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    });"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  });"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "});"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这里要重点指出的就是 "
+                    },
+                    {
+                      "text": "simulate",
+                      "link": true,
+                      "url": "https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/simulate.html"
+                    },
+                    {
+                      "text": " 函数的调用。 这是我们几次提到的ShallowWrapper的功能。 我们用它来模拟事件。它第一个参数是事件的类型（由于我们在输入中使用onChange，因此我们应该在此处使用change），第二个参数是模拟事件对象（event）。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "为了进一步说明问题，让我们测试一下用户单击按钮后是否从我们的组件发送了实际的 post 请求。我们修改测试代码如下："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "js",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import React from 'react';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import { shallow } from 'enzyme';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import ToDoList from './ToDoList';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "import axios from 'axios';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "jest.mock('axios');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "describe('ToDoList component', () => {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  describe('when the button is clicked with the input filled out', () => {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    it('a post request should be made', () => {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const toDoListInstance = shallow("
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "        <ToDoList/>"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      );"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const postSpy = jest.spyOn(axios, 'post');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const newTask = 'new task name';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const taskInput = toDoListInstance.find('input');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      taskInput.simulate('change', { target: { value: newTask }});"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      const button = toDoListInstance.find('button');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      button.simulate('click');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "      expect(postSpy).toBeCalled();"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    });"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  });"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "});"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -4122,7 +4737,7 @@
         },
         {
           "file": "src/TodoList.test.js",
-          "display": true,
+          "display": false,
           "commit": "89cbd5ac9c568340204048528b626184d50a6307",
           "type": "file",
           "children": [
@@ -4173,9 +4788,423 @@
           ]
         },
         {
-          "file": "src/__mocks__/axios.js",
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "感谢我们的 mock 和 simulate 事件，测试通过了！\n现在事情会变得有些棘手。 我们将测试状态是否随着我们的新任务而更新，其中比较有趣的是请求是异步的，我们继续修改代码如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "js",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "import React from 'react';"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "import { shallow } from 'enzyme';"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "import ToDoList from './ToDoList';"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "import axios from 'axios';"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "jest.mock('axios');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "describe('ToDoList component', () => {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  describe('when the button is clicked with the input filled out, the new task should be added to the state', () => {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    it('a post request should be made', () => {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      const toDoListInstance = shallow("
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        <ToDoList/>"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      );"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      const postSpy = jest.spyOn(axios, 'post');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      const newTask = 'new task name';"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      const taskInput = toDoListInstance.find('input');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      taskInput.simulate('change', { target: { value: newTask }});"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      const button = toDoListInstance.find('button');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      button.simulate('click');"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      const postPromise = postSpy.mock.results.pop().value;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      return postPromise.then((postResponse) => {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        const currentState = toDoListInstance.state();"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        expect(currentState.tasks.includes((postResponse.data.task))).toBe(true);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "      })"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    });"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  });"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "});"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "就像上面看到的，postSpy.mock.results 是 post 函数发送结果的数组，通过使用它，我们可以得到返回的 promise，我们可以从 "
+                },
+                {
+                  "text": "value",
+                  "code": true
+                },
+                {
+                  "text": " 属性中取到这个 promise。从测试返回 promise 是确保 Jest 等待其异步方法执行结束的一种方法。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在本文中，我们介绍了 mock 模块，并将其用于伪造API调用。 由于没有发起实际的 post 请求，我们的测试可以更可靠，更快。 除此之外，我们还在整个 React 组件中模拟了事件。 我们检查了它是否产生了预期的结果，例如组件的请求或状态变化。 为此，我们了解了 spy 的概念。"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+      "id": "a7a21358",
+      "articleId": "34217fa9",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+          "id": "b776bf32",
+          "fixed": true,
+          "children": [
+            {
+              "text": "尝试测试 React Hooks"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "Hooks 是 React 的一个令人兴奋的补充，毫无疑问，它可以帮助我们将逻辑与模板分离。 这样做使上述逻辑更具可测试性。 不幸的是，测试钩子并没有那么简单。 在本文中，我们研究了如何使用 "
+                },
+                {
+                  "text": "react-hooks-testing-library",
+                  "link": true,
+                  "url": "https://wanago.io/2019/12/09/javascript-design-patterns-facade-react-hooks/"
+                },
+                {
+                  "text": " 处理它。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/useModalManagement.js",
           "display": true,
-          "commit": "89cbd5ac9c568340204048528b626184d50a6307",
+          "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们创建 "
+                    },
+                    {
+                      "text": "src/useModalManagement.js",
+                      "code": true
+                    },
+                    {
+                      "text": " 文件如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/useModalManagement.js",
+              "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "上面的 Hooks 可以轻松地管理模式状态。 让我们开始测试它是否不会引发任何错误，我们创建 "
+                    },
+                    {
+                      "text": "useModalManagement.test.js",
+                      "code": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/useModalManagement.test.js",
+          "display": true,
+          "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
           "type": "file",
           "children": [
             {
@@ -4194,14 +5223,107 @@
             },
             {
               "type": "diff-block",
-              "file": "src/__mocks__/axios.js",
-              "commit": "89cbd5ac9c568340204048528b626184d50a6307",
-              "hiddenLines": [
-                [
-                  7,
-                  15
-                ]
-              ],
+              "file": "src/useModalManagement.test.js",
+              "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们运行测试，得到如下的结果："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "js",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "FAIL useModalManagement.test.js"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  The useModalManagement hook"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    ✕ should not throw an error按 ⌘+↩ 退出"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "不幸的是，上述测试无法正常进行。 我们可以通过阅读错误消息找出原因："
+                    }
+                  ]
+                },
+                {
+                  "type": "block-quote",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "无效的 Hooks 调用， Hooks 只能在函数式组件的函数体内部调用。"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "yarn.lock",
+          "display": false,
+          "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "yarn.lock",
+              "commit": "30543689c3e3aeca1d70b48d10be46c4176fba71",
+              "hiddenLines": [],
               "children": [
                 {
                   "text": ""
@@ -4233,6 +5355,212 @@
               "children": [
                 {
                   "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "ab544bd53d06963af5aa7ea9258cc92012fe0d9d",
+      "id": "8a6fe535",
+      "articleId": "34217fa9",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "ab544bd53d06963af5aa7ea9258cc92012fe0d9d",
+          "id": "83c7217d",
+          "fixed": true,
+          "children": [
+            {
+              "text": "让测试通过"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "React文档",
+                  "link": true,
+                  "url": "https://reactjs.org/docs/hooks-overview.html"
+                },
+                {
+                  "text": " 里面提到： 我们只能从函数式组件或其他 Hooks 中调用 Hooks。 我们可以使用本系列前面部分介绍的 enzyme 库来解决此问题，而且使了一点小聪明，我们创建 "
+                },
+                {
+                  "text": "testHook.js",
+                  "code": true
+                },
+                {
+                  "text": " ："
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/testHook.js",
+          "display": true,
+          "commit": "ab544bd53d06963af5aa7ea9258cc92012fe0d9d",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/testHook.js",
+              "commit": "ab544bd53d06963af5aa7ea9258cc92012fe0d9d",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/useModalManagement.test.js",
+          "display": true,
+          "commit": "ab544bd53d06963af5aa7ea9258cc92012fe0d9d",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们继续迭代 "
+                    },
+                    {
+                      "text": "useModalManagement.test.js",
+                      "code": true
+                    },
+                    {
+                      "text": "，修改内容如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/useModalManagement.test.js",
+              "commit": "ab544bd53d06963af5aa7ea9258cc92012fe0d9d",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们允许测试，得到如下结果："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "PASS useModalManagement.test.js"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  The useModalManagement hook"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    ✓ should not throw an error"
+                    }
+                  ]
+                }
+              ],
+              "lang": "javascript"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "好多了！ 但是，上述解决方案不是很好，并且不能为我们提供进一步测试 Hooks 的舒适方法。 这就是我们使用  "
+                },
+                {
+                  "text": "react-hooks-testing-library",
+                  "link": true,
+                  "url": "https://wanago.io/2019/12/09/javascript-design-patterns-facade-react-hooks/"
+                },
+                {
+                  "text": "   的原因，我们将在下一篇教程里讲解如何更加舒适的测试 React Hooks 的方法，敬请期待！"
                 }
               ]
             }
