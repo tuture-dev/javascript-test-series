@@ -52,7 +52,7 @@
         "React",
         "进阶"
       ],
-      "cover": null,
+      "cover": "https://static.tuture.co/c/f40c6ff/js-test-cover-3.jpg",
       "description": "在之前的两篇教程中，我们学会了如何去测试最简单的 React 组件。在实际开发中，我们的组件经常需要从外部 API 获取数据，并且组件的交互逻辑也往往更复杂。在这篇教程中，我们将学习如何测试更复杂的组件，包括用 Mock 去编写涉及外部 API 的测试，以及通过 Enzyme 来轻松模拟组件交互"
     }
   ],
