@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as modalActions from './actions/modal';
 
 function useModalManagement() {
-  const [isModalOpened, setModalVisibility] = useState(false);
+  const isModalOpened = useSelector((state) => state.modal.isOpened);
+  const dispatch = useDispatch();
 
   function openModal() {
-    setModalVisibility(true);
+    dispatch(modalActions.openModal());
   }
 
   function closeModal() {
-    setModalVisibility(false);
+    dispatch(modalActions.closeModal());
   }
 
   return {
